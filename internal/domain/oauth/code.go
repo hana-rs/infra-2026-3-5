@@ -14,6 +14,7 @@ type AuthorizationCode struct {
 	redirectURI string
 	scope       []string
 	state       string
+	nonce       string
 	expiresAt   time.Time
 }
 
@@ -24,6 +25,7 @@ func NewAuthorizationCode(
 	redirectURI string,
 	scope []string,
 	state string,
+	nonce string,
 	expiresAt time.Time,
 ) *AuthorizationCode {
 	return &AuthorizationCode{
@@ -33,6 +35,7 @@ func NewAuthorizationCode(
 		redirectURI: redirectURI,
 		scope:       scope,
 		state:       state,
+		nonce:       nonce,
 		expiresAt:   expiresAt,
 	}
 }
@@ -44,4 +47,5 @@ func (c *AuthorizationCode) UserID() uuid.UUID    { return c.userID }
 func (c *AuthorizationCode) RedirectURI() string  { return c.redirectURI }
 func (c *AuthorizationCode) Scope() []string      { return c.scope }
 func (c *AuthorizationCode) State() string        { return c.state }
+func (c *AuthorizationCode) Nonce() string        { return c.nonce }
 func (c *AuthorizationCode) ExpiresAt() time.Time { return c.expiresAt }
