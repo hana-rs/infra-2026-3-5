@@ -37,10 +37,11 @@ func NewAuthorizationCode(
 	}
 }
 
-func (c *AuthorizationCode) IsExpired() bool     { return time.Now().After(c.expiresAt) }
-func (c *AuthorizationCode) Code() string        { return c.code }
-func (c *AuthorizationCode) ClientID() uuid.UUID { return c.clientID }
-func (c *AuthorizationCode) UserID() uuid.UUID   { return c.userID }
-func (c *AuthorizationCode) RedirectURI() string { return c.redirectURI }
-func (c *AuthorizationCode) Scope() []string     { return c.scope }
-func (c *AuthorizationCode) State() string       { return c.state }
+func (c *AuthorizationCode) IsExpired() bool      { return time.Now().After(c.expiresAt) }
+func (c *AuthorizationCode) Code() string         { return c.code }
+func (c *AuthorizationCode) ClientID() uuid.UUID  { return c.clientID }
+func (c *AuthorizationCode) UserID() uuid.UUID    { return c.userID }
+func (c *AuthorizationCode) RedirectURI() string  { return c.redirectURI }
+func (c *AuthorizationCode) Scope() []string      { return c.scope }
+func (c *AuthorizationCode) State() string        { return c.state }
+func (c *AuthorizationCode) ExpiresAt() time.Time { return c.expiresAt }
